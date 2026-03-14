@@ -1,6 +1,6 @@
 ### 👋 Olá, eu sou o Kalel Lucas!
 
-Estudante de Desenvolvimento de Sistemas na ETEC. Entusiasta de sistemas de baixo nível e性能 (performance). Acredito no poder da tipagem estática e da compilação nativa.
+Estudante de Desenvolvimento de Sistemas na ETEC. Entusiasta de sistemas de baixo nível e alta performance. Acredito no poder da tipagem estática e da compilação nativa.
 
 ---
 
