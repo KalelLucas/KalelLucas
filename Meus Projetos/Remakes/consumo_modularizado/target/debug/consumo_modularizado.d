@@ -1,0 +1,1 @@
+/workspaces/KalelLucas/Meus\ Projetos/Remakes/consumo_modularizado/target/debug/consumo_modularizado: /workspaces/KalelLucas/Meus\ Projetos/Remakes/consumo_modularizado/src/consumo.rs /workspaces/KalelLucas/Meus\ Projetos/Remakes/consumo_modularizado/src/io.rs /workspaces/KalelLucas/Meus\ Projetos/Remakes/consumo_modularizado/src/main.rs
