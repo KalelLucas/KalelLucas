@@ -2,52 +2,123 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Sol e Mar - Sistema Definitivo</title>
+    <title>Sol e Mar - Sistema com Histórico</title>
     <style>
-        /* --- CSS Inalterado (omitido por brevidade, mantenha o seu CSS anterior) --- */
+        /* --- PALETA & SETUP --- */
         :root {
-            --bg-world: #1A232C; --card-bg: #EAEAEA; --text-main: #2C3E50;
-            --mar-medium: #2C3E50; --sol-gold: #D4AC0D; --mar-blue: #2C3E50;
-            --bg-sidebar: #151C24; --input-bg: #252D36; --danger: #e74c3c;
+            --bg-world: #1A232C;
+            --card-bg: #EAEAEA;
+            --text-main: #2C3E50;
+            --mar-medium: #2C3E50;
+            --sol-gold: #D4AC0D;
+            --mar-blue: #2C3E50;
+            --bg-sidebar: #151C24;
+            --input-bg: #252D36;
+            --danger: #e74c3c;
             --overlay: rgba(0, 0, 0, 0.7);
+            --success: #27ae60;
+            --info: #3498db;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
         body { background-color: var(--bg-world); color: var(--text-main); height: 100vh; overflow: hidden; display: flex; }
-        .sidebar { width: 300px; height: 100vh; background-color: var(--bg-sidebar); border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; padding: 20px; z-index: 100; overflow-y: auto; }
-        .sidebar-header { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+
+        /* --- SIDEBAR --- */
+        .sidebar { width: 300px; height: 100vh; background-color: var(--bg-sidebar); display: flex; flex-direction: column; padding: 20px; z-index: 100; overflow: hidden; } /* Overflow hidden para controlar o layout */
+        
+        .sidebar-header { margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; flex-shrink: 0; }
         .sidebar-header h1 { color: #e0e0e0; font-size: 20px; font-weight: 300; }
         .sidebar-header h1 strong { color: var(--sol-gold); }
-        .search-area { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+
+        .search-area { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; flex-shrink: 0; }
         .input-group label { display: block; color: rgba(255,255,255,0.4); font-size: 11px; margin-bottom: 4px; text-transform: uppercase; }
         .search-input { width: 100%; background-color: var(--input-bg); border: 2px solid transparent; color: #fff; padding: 10px; border-radius: 4px; font-size: 14px; outline: none; transition: border-color 0.3s; }
         .search-input:focus { border-color: var(--sol-gold); }
-        .accordion { display: flex; flex-direction: column; gap: 5px; }
+
+        /* --- MENU ACORDEÃO --- */
+        .accordion { display: flex; flex-direction: column; gap: 5px; flex-shrink: 0; }
         .acc-item { border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; transition: border-color 0.3s; }
         .acc-item.active-nav { border-color: var(--sol-gold); }
+
         .acc-header { background-color: rgba(255,255,255,0.03); padding: 10px 12px; color: rgba(255,255,255,0.6); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; transition: background 0.3s; outline: none; }
         .acc-header:hover, .acc-header:focus { background-color: rgba(255,255,255,0.06); color: #fff; }
         .acc-arrow { transition: transform 0.3s; font-size: 10px; }
         .acc-item.open .acc-arrow { transform: rotate(180deg); }
+
         .acc-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background-color: rgba(0,0,0,0.1); }
         .acc-item.open .acc-content { max-height: 500px; }
         .acc-body { padding: 15px; }
+
         .form-group { margin-bottom: 10px; }
         .form-input { width: 100%; padding: 8px; border-radius: 3px; border: 1px solid #333; background-color: #222; color: #fff; font-size: 13px; }
         .form-input:focus { border-color: var(--sol-gold); outline: none; }
+        
         .btn-action { width: 100%; padding: 8px; border: none; border-radius: 3px; font-size: 12px; font-weight: bold; cursor: pointer; margin-top: 5px; transition: opacity 0.2s; }
         .btn-add { background-color: var(--sol-gold); color: #000; }
+
         .trash-zone { margin-top: 10px; border: 2px dashed rgba(231, 76, 60, 0.3); border-radius: 4px; padding: 15px; text-align: center; color: rgba(255,255,255,0.3); font-size: 12px; transition: all 0.3s; }
         .trash-zone.active { border-color: var(--danger); background-color: rgba(231, 76, 60, 0.15); color: var(--danger); }
+
+        /* --- HISTÓRICO (NOVO) --- */
+        .history-section {
+            margin-top: auto; /* Empurra para o fundo da sidebar */
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+            flex: 1; /* Ocupa espaço restante */
+            display: flex;
+            flex-direction: column;
+            min-height: 150px;
+        }
+        .history-title {
+            color: rgba(255,255,255,0.4);
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .history-list {
+            flex: 1;
+            overflow-y: auto;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 4px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .history-list::-webkit-scrollbar { width: 4px; }
+        .history-list::-webkit-scrollbar-track { background: transparent; }
+        .history-list::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+
+        .log-entry {
+            font-size: 11px;
+            color: #aaa;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+        .log-time { color: #555; font-size: 9px; margin-right: 5px; }
+        .log-type-create { color: var(--sol-gold); }
+        .log-type-delete { color: var(--danger); }
+        .log-type-entry { color: var(--success); }
+        .log-type-exit { color: var(--info); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- MAIN AREA --- */
         .main-wrapper { flex: 1; display: flex; flex-direction: column; height: 100vh; position: relative; }
         .main-content { flex: 1; overflow-y: auto; padding: 20px; padding-bottom: 140px; }
+
         .top-bar { display: flex; justify-content: flex-end; padding: 10px 0; margin-bottom: 20px; }
         .user-info { color: rgba(255,255,255,0.5); font-size: 13px; display: flex; align-items: center; gap: 10px; }
         .user-avatar { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--sol-gold); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--sol-gold); font-weight: bold; }
+
+        /* --- GRID --- */
         .workspace { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 20px; }
         .stock-card { background-color: var(--card-bg); border-radius: 4px; padding: 15px; cursor: grab; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s; border-left: 4px solid transparent; display: flex; flex-direction: column; justify-content: space-between; height: 140px; }
         .stock-card.hidden-by-search { display: none; }
         .stock-card.unique-match { box-shadow: 0 0 0 2px var(--sol-gold), 0 10px 20px rgba(0,0,0,0.4); }
         .stock-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); border-left-color: var(--sol-gold); }
+        
         .brand-tag { font-size: 11px; font-weight: 700; color: #7f8c8d; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
         .brand-tag::before { content: ''; width: 6px; height: 6px; background-color: currentColor; border-radius: 50%; }
         .card-title { font-size: 15px; font-weight: 600; color: var(--text-main); line-height: 1.2; }
@@ -55,6 +126,8 @@
         .card-qty { margin-top: auto; border-top: 1px solid #ddd; padding-top: 8px; display: flex; justify-content: space-between; align-items: flex-end; }
         .qty-num { font-size: 22px; font-weight: 700; color: var(--mar-medium); }
         .qty-label { font-size: 9px; color: #95a5a6; text-transform: uppercase; }
+
+        /* --- RODAPÉ FIXO --- */
         .fixed-footer { position: absolute; bottom: 0; left: 0; width: 100%; background-color: #151C24; border-top: 1px solid rgba(255,255,255,0.05); z-index: 1000; display: flex; height: 120px; }
         .drop-col-left { flex: 1; padding: 15px; border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; }
         .drop-col-right { flex: 1; padding: 15px; display: flex; flex-direction: column; }
@@ -62,6 +135,8 @@
         #drop-add.active { background-color: rgba(212, 172, 13, 0.15); border-color: var(--sol-gold); border-style: solid; color: var(--sol-gold); }
         #drop-remove.active { background-color: rgba(44, 62, 80, 0.4); border-color: #5D6D7E; border-style: solid; color: #AAB7B8; }
         .dragging { opacity: 0.6; transform: scale(1.05) rotate(2deg); box-shadow: 0 15px 30px rgba(0,0,0,0.6); z-index: 100; }
+
+        /* --- MODAL DE QUANTIDADE --- */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--overlay); display: none; justify-content: center; align-items: center; z-index: 2000; }
         .modal-overlay.show { display: flex; }
         .modal-box { background-color: var(--bg-world); border: 1px solid var(--sol-gold); padding: 25px; border-radius: 8px; width: 300px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; }
@@ -73,7 +148,10 @@
         .modal-btn { flex: 1; padding: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .btn-cancel { background-color: #444; color: #fff; }
         .btn-confirm { background-color: var(--sol-gold); color: #000; }
+
+        /* Animação do Fantasma */
         .flying-ghost { position: fixed; z-index: 9999; pointer-events: none; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0.9; }
+
         .mark-alpha { border-left-color: #3498db; } .mark-beta { border-left-color: #e74c3c; }
         .mark-gamma { border-left-color: #2ecc71; } .mark-delta { border-left-color: #f1c40f; }
         .mark-epsilon { border-left-color: #9b59b6; } .mark-zeta { border-left-color: #1abc9c; }
@@ -146,6 +224,16 @@
                 </div></div>
             </div>
         </div>
+
+        <!-- HISTÓRICO DE AÇÕES (NOVO) -->
+        <div class="history-section">
+            <div class="history-title">Histórico Recente</div>
+            <div class="history-list" id="history-log">
+                <!-- Logs aparecerão aqui -->
+                <div class="log-entry" style="color:#555; text-align:center; margin-top:20px;">Nenhuma ação recente.</div>
+            </div>
+        </div>
+
     </aside>
 
     <!-- MAIN WRAPPER -->
@@ -171,6 +259,7 @@
         const trashZone = document.getElementById('trash-zone');
         const searchName = document.getElementById('search-name');
         const searchCode = document.getElementById('search-code');
+        const historyLog = document.getElementById('history-log'); // NOVO
         
         const modal = document.getElementById('qty-modal');
         const modalTitle = document.getElementById('modal-title');
@@ -181,8 +270,6 @@
         let stockData = [];
         let currentlyEditing = null;
         let currentAction = null;
-        
-        // CORREÇÃO CRÍTICA: Variável global persistente
         let currentDragId = null;
 
         const baseProducts = ['Resma A4', 'Resma Ofício', 'Caneta Azul', 'Caneta Vermelha', 'Caneta Preta', 'Lápis HB', 'Borracha Branca', 'Corretivo Líquido', 'Cola Bastão', 'Tesoura Escolar'];
@@ -194,6 +281,36 @@
 
         const genID = () => 'id-' + Math.random().toString(36).substr(2, 9);
         const genSKU = () => Math.floor(Math.random() * 90000) + 10000;
+
+        // --- FUNÇÃO DE LOG (NOVO) ---
+        function addLog(type, message) {
+            // Limpa mensagem inicial se existir
+            if (historyLog.querySelector('.log-entry').innerText === 'Nenhuma ação recente.') {
+                historyLog.innerHTML = '';
+            }
+
+            const now = new Date();
+            const time = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+            const entry = document.createElement('div');
+            entry.classList.add('log-entry', `log-type-${type}`);
+            
+            let icon = '';
+            if(type === 'create') icon = '➕';
+            if(type === 'delete') icon = '🗑️';
+            if(type === 'entry') icon = '⬆️';
+            if(type === 'exit') icon = '⬇️';
+
+            entry.innerHTML = `<span class="log-time">${time}</span> ${icon} ${message}`;
+            
+            // Adiciona no topo
+            historyLog.prepend(entry);
+
+            // Limita a 10 itens visíveis para não poluir
+            if (historyLog.children.length > 15) {
+                historyLog.lastChild.remove();
+            }
+        }
 
         // --- INICIALIZAÇÃO ---
         function initStock() {
@@ -210,6 +327,7 @@
                 });
             });
             render();
+            addLog('info', 'Sistema iniciado');
         }
 
         // --- RENDERIZAÇÃO ---
@@ -228,13 +346,12 @@
                     <div class="card-qty"><div class="qty-num">${item.qty}</div><div class="qty-label">unid.</div></div>
                 `;
 
-                // CORREÇÃO: Captura o ID no início do arraste
                 card.addEventListener('dragstart', e => {
-                    currentDragId = item.id; // Salva ID globalmente
+                    currentDragId = item.id;
                     setTimeout(() => card.classList.add('dragging'), 0);
+                    e.dataTransfer.setData('text/plain', item.id);
                 });
                 
-                // CORREÇÃO: NÃO limpamos o ID aqui, pois o 'drop' pode disparar depois
                 card.addEventListener('dragend', () => {
                     card.classList.remove('dragging');
                     dropAdd.classList.remove('active');
@@ -279,11 +396,15 @@
                 if (item.qty === 0) {
                     render();
                     if (confirm(`O item "${item.name}" chegou a 0. Deseja DELETAR o item?`)) {
-                        deleteItem(item.id);
+                        deleteItem(item.id, true); // true = é ação automática
                     }
-                } else { render(); }
+                } else {
+                    addLog('exit', `Retirada: ${qty}x ${item.name}`);
+                    render();
+                }
             } else {
                 item.qty += qty;
+                addLog('entry', `Entrada: +${qty}x ${item.name}`);
                 render();
             }
             closeModal();
@@ -298,9 +419,14 @@
 
         // --- CRUD Functions ---
 
-        function deleteItem(id) {
-            stockData = stockData.filter(i => i.id !== id);
-            render();
+        function deleteItem(id, isAutomatic = false) {
+            const item = stockData.find(i => i.id === id);
+            if(item) {
+                stockData = stockData.filter(i => i.id !== id);
+                render();
+                const msg = isAutomatic ? `Auto-Deletado (Estoque 0): ${item.name}` : `Deletado: ${item.name}`;
+                addLog('delete', msg);
+            }
         }
 
         function createItem() {
@@ -309,8 +435,13 @@
             const qty = parseInt(document.getElementById('new-qty').value) || 0;
             if(!name) return alert("Digite um nome!");
             const markObj = marks.find(m => m.letter === markLetter);
-            stockData.push({ id: genID(), name, sku: genSKU(), qty, mark: markObj });
+            
+            const newItem = { id: genID(), name, sku: genSKU(), qty, mark: markObj };
+            stockData.push(newItem);
             render();
+            
+            addLog('create', `Criado: ${name} (${qty} un)`);
+            
             document.getElementById('new-name').value = '';
             document.getElementById('new-qty').value = '';
         }
@@ -328,6 +459,7 @@
             currentlyEditing.name = document.getElementById('edit-name').value;
             currentlyEditing.qty = parseInt(document.getElementById('edit-qty').value) || 0;
             render();
+            addLog('edit', `Editado: ${currentlyEditing.name}`);
             alert("Item atualizado!");
         }
 
@@ -389,7 +521,6 @@
         // --- DROP ZONE LOGIC (Estoque) ---
         function handleDrop(e, type) {
             e.preventDefault();
-            // Usa a variável global que ainda deve estar preenchida
             const id = currentDragId;
             const item = stockData.find(i => i.id === id);
             if (item) openModal(item, type);
@@ -405,19 +536,13 @@
         dropRemove.addEventListener('dragleave', () => dropRemove.classList.remove('active'));
         dropRemove.addEventListener('drop', e => handleDrop(e, 'remove'));
 
-        // --- LIXEIRA (CORREÇÃO DEFINITIVA) ---
+        // --- LIXEIRA ---
         trashZone.addEventListener('dragover', e => { e.preventDefault(); trashZone.classList.add('active'); });
         trashZone.addEventListener('dragleave', () => trashZone.classList.remove('active'));
         trashZone.addEventListener('drop', e => {
             e.preventDefault();
-            // O ID ainda está salvo na variável global porque NÃO limpamos no dragend
             const id = currentDragId;
-            
-            if (!id) {
-                console.error("Erro crítico: ID de arraste perdido.");
-                return;
-            }
-
+            if (!id) return;
             const item = stockData.find(i => i.id === id);
             
             trashZone.classList.remove('active');
@@ -425,8 +550,6 @@
             if(item) {
                 if(confirm(`Deletar permanentemente "${item.name}"?`)) {
                     deleteItem(id);
-                    // Opcional: Limpar a variável só após sucesso
-                    currentDragId = null; 
                 }
             }
         });
