@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculo - Kalel Lucas Fontoura</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: #050a15;
+      color: #e2e8f0;
+      line-height: 1.5;
+      min-height: 100vh;
+      font-size: 16px;
+    }
+    
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+    /* Background Effects */
+    .bg-grid {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none; z-index: 0;
+    }
+    
+    .bg-glow {
+      position: fixed; top: -30%; left: -30%;
+      width: 160%; height: 160%;
+      background: 
+        radial-gradient(ellipse at 25% 25%, rgba(14, 165, 233, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 75%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+      animation: glowPulse 12s ease-in-out infinite;
+    }
+    
+    @keyframes glowPulse {
+      0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+      50% { opacity: 0.7; transform: scale(1.05) rotate(2deg); }
+    }
+
+    /* Page Container */
+    .page-wrapper {
+      position: relative; z-index: 1;
+      padding: 40px 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header { 
+      text-align: center; 
+      padding: 50px 30px; 
+      margin-bottom: 40px; 
+    }
+    
+    .header-title { 
+      font-size: 48px;
+      font-weight: 700; 
+      color: #f1f5f9; 
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    
+    .header-subtitle { 
+      font-size: 18px;
+      color: #64748b; 
+      margin-bottom: 35px; 
+    }
+
+    /* Download Button */
+    .download-btn {
+      background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+      color: #0a0f1a;
+      border: none;
+      padding: 18px 42px;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 35px rgba(14, 165, 233, 0.35);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .download-btn:hover::before { left: 100%; }
+    
+    .download-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 45px rgba(14, 165, 233, 0.45);
+    }
+    
+    .download-btn:disabled { opacity: 0.7; cursor: wait; transform: none; }
+
+    /* Resume Preview */
+    .resume-preview {
+      background: linear-gradient(145deg, #0c1322 0%, #111827 50%, #0f172a 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 
+        0 25px 80px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(56, 189, 248, 0.1),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .screen-resume { 
+      display: flex; 
+      min-height: 800px;
+    }
+
+    /* Sidebar */
+    .screen-sidebar {
+      width: 340px;
+      background: linear-gradient(180deg, #0a1120 0%, #0f172a 100%);
+      padding: 45px 35px;
+      border-right: 1px solid rgba(56, 189, 248, 0.12);
+      position: relative;
+    }
+    
+    .screen-sidebar::after {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 1px; height: 100%;
+      background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.4) 50%, transparent 100%);
+    }
+
+    /* Main Content */
+    .screen-main { 
+      flex: 1; 
+      padding: 45px 50px; 
+    }
+
+    /* Avatar */
+    .screen-avatar {
+      width: 90px; height: 90px;
+      background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #22d3ee 100%);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 
+        0 0 40px rgba(14, 165, 233, 0.5),
+        0 0 80px rgba(14, 165, 233, 0.2);
+      animation: avatarGlow 4s ease-in-out infinite;
+    }
+    
+    @keyframes avatarGlow {
+      0%, 100% { box-shadow: 0 0 40px rgba(14, 165, 233, 0.5), 0 0 80px rgba(14, 165, 233, 0.2); }
+      50% { box-shadow: 0 0 60px rgba(14, 165, 233, 0.7), 0 0 100px rgba(14, 165, 233, 0.3); }
+    }
+    
+    .screen-avatar span {
+      color: #0a0f1a;
+      font-weight: 700;
+      font-size: 32px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .screen-name { 
+      font-size: 26px;
+      font-weight: 700; 
+      color: #ffffff; 
+      line-height: 1.2; 
+      margin-bottom: 8px; 
+    }
+    
+    .screen-title { 
+      font-size: 14px;
+      color: #64748b; 
+      margin-bottom: 30px; 
+    }
+
+    /* Section Labels */
+    .screen-section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #0ea5e9;
+      margin-bottom: 15px;
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .screen-section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(14, 165, 233, 0.5), transparent);
+    }
+
+    /* Contact Lines */
+    .screen-contact-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .screen-contact-line:last-child { border-bottom: none; }
+    .screen-contact-line:hover { color: #e2e8f0; padding-left: 10px; background: rgba(14, 165, 233, 0.05); border-radius: 6px; }
+    .screen-contact-line svg { width: 16px; height: 16px; color: #0ea5e9; flex-shrink: 0; transition: all 0.3s ease; }
+    .screen-contact-line:hover svg { filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.6)); }
+
+    /* Tags */
+    .screen-tag {
+      display: inline-block;
+      background: rgba(14, 165, 233, 0.12);
+      color: #7dd3fc;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      margin: 4px;
+      font-weight: 500;
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .screen-tag:hover {
+      background: rgba(14, 165, 233, 0.22);
+      border-color: rgba(14, 165, 233, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+    }
+
+    /* Language Bars */
+    .screen-lang-row { 
+      display: flex; 
+      justify-content: space-between; 
+      font-size: 13px; 
+      margin-bottom: 6px; 
+    }
+    
+    .screen-lang-name { color: #cbd5e1; }
+    .screen-lang-level { color: #0ea5e9; font-weight: 600; }
+    
+    .screen-lang-bar { 
+      height: 10px; 
+      background: rgba(30, 41, 59, 0.8); 
+      border-radius: 5px; 
+      margin-bottom: 14px; 
+      overflow: hidden; 
+    }
+    
+    .screen-lang-fill { 
+      height: 100%; 
+      background: linear-gradient(90deg, #0ea5e9, #06b6d4, #22d3ee); 
+      border-radius: 5px;
+      transition: width 1s ease;
+    }
+
+    /* Education Items */
+    .screen-edu-item {
+      margin-bottom: 16px;
+      padding-left: 16px;
+      border-left: 3px solid rgba(14, 165, 233, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .screen-edu-item:hover {
+      border-left-color: #0ea5e9;
+      background: rgba(14, 165, 233, 0.05);
+      margin-left: -6px;
+      padding-left: 22px;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .screen-edu-name { font-size: 14px; font-weight: 600; color: #f1f5f9; }
+    .screen-edu-course { font-size: 12px; color: #64748b; margin-top: 2px; }
+    .screen-edu-date { font-size: 12px; color: #0ea5e9; font-weight: 500; margin-top: 4px; }
+
+    /* About Text */
+    .screen-about-text { 
+      font-size: 15px;
+      color: #94a3b8; 
+      line-height: 1.7; 
+      margin-bottom: 30px; 
+    }
+    
+    .screen-about-text strong { color: #0ea5e9; font-weight: 600; }
+
+    /* Main Section Label */
+    .screen-main-section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #0ea5e9;
+      margin-bottom: 20px;
+      margin-top: 35px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .screen-main-section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(14, 165, 233, 0.5), transparent);
+    }
+
+    /* Job Cards */
+    .screen-job {
+      margin-bottom: 20px;
+      padding: 22px 25px;
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.08);
+      position: relative;
+      transition: all 0.4s ease;
+    }
+    
+    .screen-job::before {
+      content: '';
+      position: absolute; left: 0;
+      top: 12px; bottom: 12px;
+      width: 4px;
+      background: linear-gradient(180deg, #0ea5e9, #06b6d4);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    .screen-job:hover {
+      background: rgba(15, 23, 42, 0.85);
+      border-color: rgba(56, 189, 248, 0.25);
+      transform: translateX(10px);
+      box-shadow: 
+        0 8px 35px rgba(14, 165, 233, 0.15),
+        -4px 0 20px rgba(14, 165, 233, 0.1);
+    }
+    
+    .screen-job:hover::before { 
+      width: 5px; 
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.6); 
+    }
+
+    .screen-job-header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: flex-start; 
+      margin-bottom: 6px; 
+    }
+    
+    .screen-job-title { font-size: 17px; font-weight: 600; color: #f1f5f9; }
+    .screen-job-company { font-size: 13px; color: #64748b; margin-top: 3px; }
+    
+    .screen-job-date {
+      font-size: 11px;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(6, 182, 212, 0.2));
+      color: #7dd3fc;
+      padding: 5px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+      font-weight: 600;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+    }
+    
+    .screen-job-location { 
+      font-size: 12px; 
+      color: #475569; 
+      margin-bottom: 8px; 
+      display: flex; 
+      align-items: center; 
+      gap: 6px; 
+    }
+    
+    .screen-job-location::before { 
+      content: ''; 
+      width: 5px; height: 5px; 
+      background: #475569; 
+      border-radius: 50%; 
+    }
+    
+    .screen-job-desc { 
+      font-size: 13px; 
+      color: #94a3b8; 
+      line-height: 1.6; 
+      padding-left: 15px; 
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-in { animation: fadeInUp 0.7s ease forwards; opacity: 0; }
+
+    /* Footer */
+    .footer { 
+      text-align: center; 
+      padding: 50px 30px; 
+      color: #475569; 
+      font-size: 13px; 
+    }
+    
+    .footer a { color: #0ea5e9; text-decoration: none; transition: all 0.3s ease; }
+    .footer a:hover { text-decoration: underline; text-shadow: 0 0 10px rgba(14, 165, 233, 0.5); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .screen-resume { flex-direction: column; }
+      .screen-sidebar { width: 100%; border-right: none; border-bottom: 1px solid rgba(56, 189, 248, 0.12); }
+      .screen-sidebar::after { display: none; }
+      .header-title { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+
+  <div class="page-wrapper">
+    
+    <header class="header animate-in" style="animation-delay: 0.1s;">
+      <h1 class="header-title">Curriculo</h1>
+      <p class="header-subtitle">Kalel Lucas Fontoura - Compositor, Produtor Vocal, Vocalista</p>
+      <button id="downloadBtn" class="download-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        <span id="btnText">Baixar PDF</span>
+      </button>
+    </header>
+
+    <div class="resume-preview animate-in" style="animation-delay: 0.2s;">
+      <div class="screen-resume">
+        
+        <aside class="screen-sidebar">
+          <div class="screen-avatar animate-in" style="animation-delay: 0.3s;"><span>KL</span></div>
+          <h1 class="screen-name animate-in" style="animation-delay: 0.35s;">Kalel Lucas Fontoura</h1>
+          <p class="screen-title animate-in" style="animation-delay: 0.4s;">Compositor, Produtor Vocal, Vocalista</p>
+
+          <span class="screen-section-label animate-in" style="animation-delay: 0.45s;">Contato</span>
+          <div class="screen-contact-line animate-in" style="animation-delay: 0.5s;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Bairro Cris II - Votuporanga/SP</span>
+          </div>
+          <div class="screen-contact-line animate-in" style="animation-delay: 0.55s;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+55 17 99248-9370</span>
+          </div>
+          <div class="screen-contact-line animate-in" style="animation-delay: 0.6s;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>kalellucasjob@gmail.com</span>
+          </div>
+          <div class="screen-contact-line animate-in" style="animation-delay: 0.65s;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <span>linkedin.com/in/kalellucasofficial</span>
+          </div>
+
+          <span class="screen-section-label animate-in" style="animation-delay: 0.7s;">Competencias</span>
+          <div class="animate-in" style="animation-delay: 0.75s;">
+            <span class="screen-tag">Soldagem TIG</span>
+            <span class="screen-tag">Soldagem MIG</span>
+            <span class="screen-tag">Word</span>
+            <span class="screen-tag">Excel</span>
+            <span class="screen-tag">Access</span>
+            <span class="screen-tag">PowerPoint</span>
+            <span class="screen-tag">Python</span>
+            <span class="screen-tag">C</span>
+            <span class="screen-tag">Scratch</span>
+          </div>
+
+          <span class="screen-section-label animate-in" style="animation-delay: 0.8s;">Audio</span>
+          <div class="animate-in" style="animation-delay: 0.85s;">
+            <span class="screen-tag">Mixagem</span>
+            <span class="screen-tag">Masterizacao</span>
+            <span class="screen-tag">Edicao</span>
+            <span class="screen-tag">Reaper</span>
+            <span class="screen-tag">Cakewalk</span>
+          </div>
+
+          <span class="screen-section-label animate-in" style="animation-delay: 0.9s;">Idiomas</span>
+          <div class="animate-in" style="animation-delay: 0.95s;">
+            <div class="screen-lang-row"><span class="screen-lang-name">Portugues Brasileiro</span><span class="screen-lang-level">Nativo</span></div>
+            <div class="screen-lang-bar"><div class="screen-lang-fill" style="width:100%"></div></div>
+            <div class="screen-lang-row"><span class="screen-lang-name">Ingles</span><span class="screen-lang-level">Profissional</span></div>
+            <div class="screen-lang-bar"><div class="screen-lang-fill" style="width:85%"></div></div>
+          </div>
+
+          <span class="screen-section-label animate-in" style="animation-delay: 1s;">Formacao</span>
+          <div class="screen-edu-item animate-in" style="animation-delay: 1.05s;">
+            <div class="screen-edu-name">Senai Sao Paulo</div>
+            <div class="screen-edu-course">Soldagem, Industrial</div>
+            <div class="screen-edu-date">Jan - Dez 2025</div>
+          </div>
+          <div class="screen-edu-item animate-in" style="animation-delay: 1.1s;">
+            <div class="screen-edu-name">FULBEAS</div>
+            <div class="screen-edu-course">Formacao Profissional Basica</div>
+            <div class="screen-edu-date">Jan - Mai 2023</div>
+          </div>
+          <div class="screen-edu-item animate-in" style="animation-delay: 1.15s;">
+            <div class="screen-edu-name">E.E. Monsenhor Gonsalves</div>
+            <div class="screen-edu-course">Ensino Medio Completo</div>
+            <div class="screen-edu-date">Jan 2021 - Dez 2023</div>
+          </div>
+        </aside>
+
+        <main class="screen-main">
+          <span class="screen-main-section-label animate-in" style="animation-delay: 0.5s;">Sobre Mim</span>
+          <p class="screen-about-text animate-in" style="animation-delay: 0.55s;">
+            Formado na <strong>FULBEAS</strong> em Sao Jose do Rio Preto, curso preparatorio para o mercado de trabalho em 2023, com experiencia de 6 meses no setor administrativo. Sou <strong>proativo e organizado</strong>, presto atencao aos detalhes e tenho capacidade multitarefa. Conhecimentos intermediarios em Word, Excel, Access, PowerPoint, Rede, Multimidia, Edicao/Tratamento, Mixagem e Masterizacao de Audio. Conhecimento basico em logica de programacao (Python, C, Scratch). Trabalho remotamente ha 5 anos em projetos freelance.
+          </p>
+
+          <span class="screen-main-section-label animate-in" style="animation-delay: 0.6s;">Experiencia Profissional</span>
+
+          <div class="screen-job animate-in" style="animation-delay: 0.65s;">
+            <div class="screen-job-header">
+              <div>
+                <div class="screen-job-title">Sound Designer</div>
+                <div class="screen-job-company">Autonomo</div>
+              </div>
+              <span class="screen-job-date">Jan 2021 - Presente</span>
+            </div>
+            <div class="screen-job-location">Votuporanga, SP - Remoto</div>
+            <div class="screen-job-desc">Edicao, tratamento, mixagem e masterizacao de audio.</div>
+          </div>
+
+          <div class="screen-job animate-in" style="animation-delay: 0.7s;">
+            <div class="screen-job-header">
+              <div>
+                <div class="screen-job-title">Jovem Aprendiz Soldador</div>
+                <div class="screen-job-company">Facchini S/A</div>
+              </div>
+              <span class="screen-job-date">Jan - Dez 2025</span>
+            </div>
+            <div class="screen-job-location">Votuporanga, SP</div>
+            <div class="screen-job-desc">Conciliando experiencia pratica com curso tecnico de soldagem no SENAI. Preparacao de pecas, processos de soldagem, leitura de desenho tecnico e cumprimento de normas de seguranca (EPIs).</div>
+          </div>
+
+          <div class="screen-job animate-in" style="animation-delay: 0.75s;">
+            <div class="screen-job-header">
+              <div>
+                <div class="screen-job-title">Auxiliar Montagem de Moveis</div>
+                <div class="screen-job-company">STUCCO MOVEIS</div>
+              </div>
+              <span class="screen-job-date">Out 2024</span>
+            </div>
+            <div class="screen-job-location">Sao Jose do Rio Preto, SP</div>
+            <div class="screen-job-desc">Montagem de moveis planejados com foco em qualidade e agilidade. Leitura de projetos, manuseio de ferramentas e trabalho em equipe.</div>
+          </div>
+
+          <div class="screen-job animate-in" style="animation-delay: 0.8s;">
+            <div class="screen-job-header">
+              <div>
+                <div class="screen-job-title">Auxiliar Salgadeiro</div>
+                <div class="screen-job-company">PRATIC CONVENIENCIA</div>
+              </div>
+              <span class="screen-job-date">Jul - Ago 2024</span>
+            </div>
+            <div class="screen-job-location">Sao Jose do Rio Preto, SP</div>
+            <div class="screen-job-desc">Producao de salgados em ambiente de alto movimento. Organizacao, higiene e trabalho em equipe.</div>
+          </div>
+
+          <div class="screen-job animate-in" style="animation-delay: 0.85s;">
+            <div class="screen-job-header">
+              <div>
+                <div class="screen-job-title">Repositor de Mercadorias</div>
+                <div class="screen-job-company">GUSTAVO MELLO ARAUJO</div>
+              </div>
+              <span class="screen-job-date">Abr - Mai 2024</span>
+            </div>
+            <div class="screen-job-location">Sao Jose do Rio Preto, SP</div>
+            <div class="screen-job-desc">Reposicao de mercadorias, controle de estoque, conferencia de notas fiscais e rotacao de produtos (FEPS).</div>
+          </div>
+
+          <div class="screen-job animate-in" style="animation-delay: 0.9s;">
+            <div class="screen-job-header">
+              <div>
+                <div class="screen-job-title">Televendas</div>
+                <div class="screen-job-company">Autonomo</div>
+              </div>
+              <span class="screen-job-date">Jun - Ago 2023</span>
+            </div>
+            <div class="screen-job-location">Sao Jose do Rio Preto, SP</div>
+            <div class="screen-job-desc">Venda de credito consignado via telefone, prospeccao ativa de clientes e negociacao.</div>
+          </div>
+
+          <div class="screen-job animate-in" style="animation-delay: 0.95s;">
+            <div class="screen-job-header">
+              <div>
+                <div class="screen-job-title">Assistente Estagiario</div>
+                <div class="screen-job-company">FULBEAS</div>
+              </div>
+              <span class="screen-job-date">Jan - Mai 2023</span>
+            </div>
+            <div class="screen-job-location">Sao Jose do Rio Preto, SP</div>
+            <div class="screen-job-desc">Estagio em empresas corporativas condizentes com o curso de formacao para o mercado de trabalho.</div>
+          </div>
+
+          <div class="screen-job animate-in" style="animation-delay: 1s;">
+            <div class="screen-job-header">
+              <div>
+                <div class="screen-job-title">Assistente Administrativo</div>
+                <div class="screen-job-company">Proenca Abertura de Empresas</div>
+              </div>
+              <span class="screen-job-date">Jan - Abr 2022</span>
+            </div>
+            <div class="screen-job-location">Sao Jose do Rio Preto, SP</div>
+            <div class="screen-job-desc">Organizacao do arquivo fisico e digital, automatizacao de planilhas com Excel e Access.</div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer class="footer animate-in" style="animation-delay: 1.1s;">
+      <p>Desenvolvido por <a href="https://linkedin.com/in/kalellucasofficial" target="_blank">Kalel Lucas Fontoura</a></p>
+    </footer>
+
+  </div>
+
+  <script>
+    const downloadBtn = document.getElementById('downloadBtn');
+    const btnText = document.getElementById('btnText');
+    const pdfUrl = 'https://kalellucas.github.io/KalelLucas/Curriculos/Curriculo%20-%20Kalel%20Lucas%20Fontoura.pdf';
+
+    downloadBtn.addEventListener('click', async function() {
+      downloadBtn.disabled = true;
+      btnText.textContent = 'Baixando...';
+
+      try {
+        const response = await fetch(pdfUrl);
+        if (!response.ok) throw new Error('Erro ao baixar');
+        
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Curriculo_Kalel_Lucas_Fontoura.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+        
+        btnText.textContent = 'Baixar PDF';
+        downloadBtn.disabled = false;
+      } catch (error) {
+        console.error('Erro:', error);
+        btnText.textContent = 'Baixar PDF';
+        downloadBtn.disabled = false;
+        window.open(pdfUrl, '_blank');
+      }
+    });
+  </script>
+
+</body>
+</html>
