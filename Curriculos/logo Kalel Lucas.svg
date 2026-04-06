@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Gradiente: Laranja Rust para Roxo C# -->
+    <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F74C00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#68217A;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradiente para o fundo do texto -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#2d2d2d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E1E1E;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="500" height="500" rx="40" fill="#1E1E1E" />
+
+  <!-- Centro da Composição -->
+  <g transform="translate(250, 210)">
+    
+    <!-- 1. A Engrenagem (Gira por TRÁS) -->
+    <g>
+      <animateTransform attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        from="360 0 0"
+                        to="0 0 0"
+                        dur="15s"
+                        repeatCount="indefinite" />
+      
+      <!-- Hexágono Externo (C# Structure) -->
+      <polygon points="0,-105 90.9,-52.5 90.9,52.5 0,105 -90.9,52.5 -90.9,-52.5" 
+               fill="none" 
+               stroke="url(#techGradient)" 
+               stroke-width="4" 
+               stroke-opacity="0.3" />
+      
+      <!-- Engrenagem de Dentro (Rust/Cargo Mechanism) -->
+      <circle r="75" fill="none" stroke="#F74C00" stroke-width="12" stroke-dasharray="15, 10" opacity="0.6"/>
+      <circle r="85" fill="none" stroke="#68217A" stroke-width="2" stroke-dasharray="2, 8" opacity="0.8"/>
+    </g>
+
+    <!-- 2. O Núcleo das Iniciais (KL) - ESTÁTICO e ELABORADO -->
+    
+    <!-- Brilho de fundo -->
+    <circle r="60" fill="url(#centerGlow)" />
+
+    <!-- Efeito Glitch/Aberração Cromática -->
+    <!-- Camada 1: Laranja (Rust) deslocada -->
+    <text x="-3" y="15" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="70" fill="#F74C00" text-anchor="middle" opacity="0.7">KL</text>
+    
+    <!-- Camada 2: Roxo (C#) deslocada -->
+    <text x="3" y="15" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="70" fill="#68217A" text-anchor="middle" opacity="0.7">KL</text>
+    
+    <!-- Camada 3: Branca Central -->
+    <text x="0" y="15" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="70" fill="#FFFFFF" text-anchor="middle">KL</text>
+    
+    <!-- Cursor Pulsante -->
+    <rect x="-25" y="25" width="50" height="4" fill="url(#techGradient)">
+       <animate attributeName="width" values="10;50;10" dur="3s" repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- Tipografia Nome -->
+  <text x="250" y="400" font-family="'Consolas', 'Monaco', monospace" font-weight="bold" font-size="32" fill="#F0F0F0" text-anchor="middle" letter-spacing="4">
+    KALEL LUCAS
+  </text>
+  
+  <!-- Subtítulo Corrigido -->
+  <text x="250" y="440" font-family="sans-serif" font-size="14" fill="#A0A0A0" text-anchor="middle" letter-spacing="4" style="text-transform: uppercase;">
+    System Designer
+  </text>
+</svg>
