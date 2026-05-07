@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TÍTULO QUE APARECE NA ABA DO NAVEGADOR -->
+    <title>Meus sites favoritos</title>
+    
+    <!-- ESTILOS CSS PARA DEIXAR A PÁGINA BONITA -->
+    <style>
+        /* ====== RESET E ESTILO GERAL ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background-color: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+        }
+        
+        /* Título principal da página */
+        h1.titulo-principal {
+            text-align: center;
+            color: #2d3436;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 25px;
+        }
+        
+        /* ====== GRID PRINCIPAL - ALINHAMENTO PERFEITO ====== */
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+            gap: 30px; /* Espaçamento entre os cards */
+            justify-items: stretch; /* Todos os cards com mesma largura */
+            align-items: start; /* Alinhamento pelo topo */
+        }
+        
+        /* ====== CARD DE CADA SITE - TAMANHO FIXO E ALINHADO ====== */
+        .site-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            
+            /* IMPORTANTE: Altura fixa para todos ficarem iguais */
+            display: flex;
+            flex-direction: column;
+            height: 420px; /* Altura fixa para todos os cards */
+        }
+        
+        /* Efeito hover no card */
+        .site-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+            border-color: #667eea;
+        }
+        
+        /* Nome do site (h1 dentro do card) */
+        .site-card h1 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-bottom: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+            /* Fixar tamanho do título */
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* ====== ÁREA DA IMAGEM - TAMANHO FIXO ====== */
+        .img-container {
+            width: 100%;
+            height: 200px; /* Altura fixa da área da imagem */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 3px solid #e8e8e8;
+            overflow: hidden;
+            padding: 10px;
+            flex-shrink: 0; /* Não diminui */
+        }
+        
+        /* Estilo das imagens */
+        .site-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Mantém proporção sem distorcer */
+            transition: transform 0.3s ease;
+        }
+        
+        /* Efeito na imagem quando passa o mouse */
+        .site-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Efeito na borda da imagem ao passar o mouse */
+        .site-card:hover .img-container {
+            border-color: #764ba2;
+        }
+        
+        /* ====== ÁREA DO LINK - SEMPRE NO FUNDO ====== */
+        .link-container {
+            margin-top: auto; /* Empurra o link para baixo */
+            padding-top: 10px;
+        }
+        
+        /* Estilo dos links */
+        .site-card a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Efeito hover no link */
+        .site-card a:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Rodapé da página */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        /* ====== RESPONSIVIDADE PARA TELAS MENORES ====== */
+        @media (max-width: 900px) {
+            .sites-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .sites-grid {
+                grid-template-columns: 1fr; /* 1 coluna em celulares */
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1.titulo-principal {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="container">
+        
+        <!-- TÍTULO PRINCIPAL DA PÁGINA -->
+        <h1 class="titulo-principal">Meus sites favoritos: Seu Nome</h1>
+        
+        <!-- GRID COM OS 5 SITES - PERFEITAMENTE ALINHADOS -->
+        <div class="sites-grid">
+            
+            <!-- ========== SITE 1: YOUTUBE ========== -->
+            <div class="site-card">
+                <h1>YouTube</h1>
+                <div class="img-container">
+                    <img src="https://logo-download.com/wp-content/data/images/svg/YouTube-logo.svg" 
+                         alt="Logo do YouTube"
+                         onerror="this.onerror=null; this.src='https://placehold.co/300x150/ff0000/white?text=YouTube';">
+                </div>
+                <div class="link-container">
+                    <a href="https://www.youtube.com" target="_blank">Visitar →</a>
+                </div>
+            </div>
+
+            <!-- ========== SITE 2: GITHUB ========== -->
+            <div class="site-card">
+                <h1>GitHub</h1>
+                <div class="img-container">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+                         alt="Logo do GitHub"
+                         onerror="this.onerror=null; this.src='https://placehold.co/300x150/24292e/white?text=GitHub';">
+                </div>
+                <div class="link-container">
+                    <a href="https://github.com" target="_blank">Visitar →</a>
+                </div>
+            </div>
+
+            <!-- ========== SITE 3: BOOMBOX ========== -->
+            <div class="site-card">
+                <h1>Boombox</h1>
+                <div class="img-container">
+                    <img src="https://boombox.io/assets/images/logo.svg" 
+                         alt="Logo do Boombox"
+                         onerror="this.onerror=null; this.src='https://placehold.co/300x150/e91e63/white?text=Boombox';">
+                </div>
+                <div class="link-container">
+                    <a href="https://boombox.io" target="_blank">Visitar →</a>
+                </div>
+            </div>
+
+            <!-- ========== SITE 4: SOUNDCLOUD ========== -->
+            <div class="site-card">
+                <h1>SoundCloud</h1>
+                <div class="img-container">
+                    <img src="https://soundcloud.com/icons/sc_logo_500.png" 
+                         alt="Logo do SoundCloud"
+                         onerror="this.onerror=null; this.src='https://placehold.co/300x150/ff5500/white?text=SoundCloud';">
+                </div>
+                <div class="link-container">
+                    <a href="https://soundcloud.com" target="_blank">Visitar →</a>
+                </div>
+            </div>
+
+            <!-- ========== SITE 5: DISCO.AC ========== -->
+            <div class="site-card">
+                <h1>Disco.ac</h1>
+                <div class="img-container">
+                    <img src="https://disco.ac/assets/images/logo.png" 
+                         alt="Logo do Disco.ac"
+                         onerror="this.onerror=null; this.src='https://placehold.co/300x150/9c27b0/white?text=Disco.ac';">
+                </div>
+                <div class="link-container">
+                    <a href="https://disco.ac" target="_blank">Visitar →</a>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- RODAPÉ -->
+        <footer>
+            <p><strong>Atividade: Meus Sites Favoritos</strong></p>
+            <p>Desenvolvimento de Sistemas | © 2024</p>
+        </footer>
+        
+    </div>
+
+</body>
+</html>
