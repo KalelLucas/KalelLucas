@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portal de Entretenimento Digital</title>
+    
+    <!-- CSS RESET (Eric Meyer) - vem PRIMEIRO -->
+    <link rel="stylesheet" href="reset.css">
+    
+    <!-- CSS EXTERNO PRINCIPAL - vem DEPOIS -->
+    <link rel="stylesheet" href="estilo.css">
+    
+    <!-- CSS INTERNO (dentro do style) -->
+    <style>
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .subtitulo {
+            color: #f0f0f0;
+            font-size: 1.2em;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1a1a2e;
+            border-radius: 10px;
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .galeria-imagens {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <!-- H1 com classe + CSS INLINE -->
+        <h1 class="titulo-principal" style="color: #fff; text-shadow: 3px 3px 10px rgba(0,0,0,0.5);">
+            Meu Portal de Entretenimento Digital
+        </h1>
+        <p class="subtitulo">Seu destino para filmes, musica, podcasts e games!</p>
+    </header>
+
+    <!-- CONTAINER FLEXBOX COM AS 3 SECOES -->
+    <div id="container-flex">
+
+        <!-- ======== SECAO 1: FILMES E SERIES ======== -->
+        <section class="secao">
+            <h2 class="titulo-secao">Filmes e Series</h2>
+            
+            <div class="galeria-imagens">
+                <img src="https://picsum.photos/400/200?random=1" 
+                     alt="Cena de filme epico" 
+                     class="imagem-portal">
+                
+                <img src="https://picsum.photos/400/200?random=2" 
+                     alt="Poster de serie" 
+                     class="imagem-portal">
+                
+                <img src="https://picsum.photos/400/200?random=3" 
+                     alt="Cena de acao" 
+                     class="imagem-portal">
+            </div>
+            
+            <p class="texto-descritivo">
+                Descubra os melhores filmes e series do momento! 
+                Desde blockbusters de Hollywood ate producoes nacionais premiadas.
+            </p>
+            
+            <!-- P com CSS INLINE -->
+            <p class="texto-descritivo" style="color: #ffcc00;">
+                Dica: Use nosso sistema de recomendacao personalizado!
+            </p>
+        </section>
+
+        <!-- ======== SECAO 2: MUSICA E PODCASTS ======== -->
+        <section class="secao" id="destaque-especial">
+            <h2 class="titulo-secao">Musica e Podcasts</h2>
+            
+            <div class="galeria-imagens">
+                <img src="https://picsum.photos/400/200?random=4" 
+                     alt="Festival de musica" 
+                     class="imagem-portal">
+                
+                <img src="https://picsum.photos/400/200?random=5" 
+                     alt="Estudio de gravacao" 
+                     class="imagem-portal">
+                
+                <img src="https://picsum.photos/400/200?random=6" 
+                     alt="Capa de podcast" 
+                     class="imagem-portal">
+            </div>
+            
+            <p class="texto-descritivo">
+                Explore novos generos musicais e descubra podcasts 
+                fascinantes sobre tecnologia, cultura e entretenimento.
+            </p>
+            
+            <p class="texto-descritivo">
+                Playlists curadas por especialistas e entrevistas exclusivas!
+            </p>
+        </section>
+
+        <!-- ======== SECAO 3: GAMES E TECNOLOGIA ======== -->
+        <section class="secao">
+            <h2 class="titulo-secao">Games e Tecnologia</h2>
+            
+            <div class="galeria-imagens">
+                <img src="https://picsum.photos/400/200?random=7" 
+                     alt="Setup gamer" 
+                     class="imagem-portal">
+                
+                <img src="https://picsum.photos/400/200?random=8" 
+                     alt="Gameplay de videogame" 
+                     class="imagem-portal">
+                
+                <img src="https://picsum.photos/400/200?random=9" 
+                     alt="Gadget tecnologico" 
+                     class="imagem-portal">
+            </div>
+            
+            <p class="texto-descritivo">
+                Fique por dentro das ultimas novidades em games, hardware 
+                e tecnologia. Reviews, lancamentos e muito mais!
+            </p>
+            
+            <!-- P com CSS INLINE -->
+            <p class="texto-descritivo" style="color: #00ff88;">
+                Confira os lancamentos da semana!
+            </p>
+        </section>
+
+    </div>
+
+    <!-- RODAPE -->
+    <footer>
+        <p>2024 Meu Portal de Entretenimento Digital | Desenvolvido com CSS</p>
+        <p>Criado como atividade academica - Agenda 13: CSS</p>
+    </footer>
+
+</body>
+</html>

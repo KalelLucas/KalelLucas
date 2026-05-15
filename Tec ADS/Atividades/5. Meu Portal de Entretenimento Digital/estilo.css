@@ -1,0 +1,90 @@
+/* ============================================
+   ESTILO PRINCIPAL - Portal de Entretenimento
+   ============================================ */
+
+/* ---------- GERAIS ---------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* ---------- CLASSE DO TÍTULO H1 ---------- */
+.titulo-principal {
+    text-align: center;
+    font-size: 2.8em;
+    color: #ff6b35;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(255, 107, 53, 0.5);
+}
+
+/* ---------- ID DO CONTAINER FLEX ---------- */
+#container-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* ---------- CLASSE DAS SEÇÕES ---------- */
+.secao {
+    background-color: #1a1a2e;
+    border-radius: 15px;
+    padding: 25px;
+    width: 320px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid #ff6b35;
+}
+
+.secao:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
+}
+
+/* ---------- CLASSE DOS TÍTULOS H2 ---------- */
+.titulo-secao {
+    color: #e94560;
+    font-size: 1.6em;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #e94560;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* ---------- CLASSE DAS IMAGENS ---------- */
+.imagem-portal {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 2px solid #333;
+}
+
+.imagem-portal:hover {
+    opacity: 0.85;
+    border-color: #ff6b35;
+}
+
+/* ---------- CLASSE DOS TEXTOS ---------- */
+.texto-descritivo {
+    font-size: 0.95em;
+    color: #cccccc;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ---------- ID DE DESTAQUE ESPECIAL ---------- */
+#destaque-especial {
+    background-color: #16213e;
+    border-color: #00d9ff;
+}
