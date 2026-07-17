@@ -6,16 +6,17 @@ Estudante de Desenvolvimento de Sistemas na ETEC. Entusiasta de sistemas de baix
 
 ### 🚀 Minhas Tecnologias
 
+![Zig](https://img.shields.io/badge/Zig-000000?style=for-the-badge&logo=zig&logoColor=white)
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
 ![COBOL](https://img.shields.io/badge/COBOL-00599C?style=for-the-badge&logo=cobol&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)
-![Zig](https://img.shields.io/badge/Zig-000000?style=for-the-badge&logo=zig&logoColor=white)
 ![Nim](https://img.shields.io/badge/Nim-FFC200?style=for-the-badge&logo=nim&logoColor=black)
+
 ![LuaJIT](https://img.shields.io/badge/LuaJIT-2C2D72?style=for-the-badge&logo=lua&logoColor=white)
 ![L%C3%96VE](https://img.shields.io/badge/L%C3%96VE-CC0000?style=for-the-badge&logo=love&logoColor=white)
+![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 ---
 
