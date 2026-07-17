@@ -12,6 +12,10 @@ Estudante de Desenvolvimento de Sistemas na ETEC. Entusiasta de sistemas de baix
 ![COBOL](https://img.shields.io/badge/COBOL-00599C?style=for-the-badge&logo=cobol&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)
+![Zig](https://img.shields.io/badge/Zig-000000?style=for-the-badge&logo=zig&logoColor=white)
+![Nim](https://img.shields.io/badge/Nim-FFC200?style=for-the-badge&logo=nim&logoColor=black)
+![LuaJIT](https://img.shields.io/badge/LuaJIT-2C2D72?style=for-the-badge&logo=lua&logoColor=white)
+![L%C3%96VE](https://img.shields.io/badge/L%C3%96VE-CC0000?style=for-the-badge&logo=love&logoColor=white)
 
 ---
 
@@ -19,6 +23,7 @@ Estudante de Desenvolvimento de Sistemas na ETEC. Entusiasta de sistemas de baix
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kalellucasofficial/)
 [![Gmail](https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red)](mailto:kalellucasjob@gmail.com)
+[![Indeed](https://img.shields.io/badge/Indeed-2164F4?style=for-the-badge&logo=indeed&logoColor=white)](https://www.indeed.com/)
 
 ---
 
