@@ -1,0 +1,104 @@
+/* ============================================================
+   estilo.css  —  todo o visual da loja, 100% CSS puro.
+   Nada de inline, nada de W3.CSS, nada de JS.
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, sans-serif;
+    background: #f4f6f8;
+    color: #2c3e50;
+    padding: 24px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 560px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    color: #2196f3;
+    margin-bottom: 24px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #e3f2fd;
+    padding-bottom: 8px;
+}
+
+/* ---------- Formulário ---------- */
+.campo {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fafbfc;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.18);
+}
+
+button {
+    background: #2196f3;
+    color: #fff;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    transition: background 0.2s, transform 0.05s;
+}
+
+button:hover  { background: #1976d2; }
+button:active { transform: translateY(1px); }
+
+/* ---------- Painel de resultado ---------- */
+.painel {
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-bottom: 22px;
+    border-left: 5px solid;
+    font-size: 0.97rem;
+}
+
+.painel-sucesso {
+    background: #e8f5e9;
+    border-color: #43a047;
+    color: #1b5e20;
+}
+
+.painel-erro {
+    background: #ffebee;
+    border-color: #e53935;
+    color: #b71c1c;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja PHP Pura</title>
+    <link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Loja PHP Pura</h1>
+
+        <!-- O PHP injeta aqui o HTML do resultado (se houver) -->
+        {{resultado}}
+
+        <form method="post" action="">
+            <div class="campo">
+                <label for="txtNome">Nome do cliente</label>
+                <input type="text" id="txtNome" name="txtNome" required>
+            </div>
+
+            <div class="campo">
+                <label for="txtValorCompra">Valor da compra (R$)</label>
+                <input type="number" id="txtValorCompra" name="txtValorCompra"
+                       step="0.01" min="0" required>
+            </div>
+
+            <div class="campo">
+                <label for="cmbPag">Forma de pagamento</label>
+                <select id="cmbPag" name="cmbPag">
+                    <option value="cartaoCredito">Cartão de crédito</option>
+                    <option value="boleto">Boleto</option>
+                    <option value="deposito">Depósito</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <button type="submit">Calcular</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
