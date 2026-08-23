@@ -39,7 +39,7 @@ Acredito no poder da tipagem estática e da compilação nativa.
 ### 📫 Onde me encontrar
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kalellucasofficial/)
-[![Gmail](https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red)](mailto:kalellucas@atomicmail.io)
+[![Email](https://img.shields.io/badge/Email-333333?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:kaluhjob@atomicmail.io)
 [![Indeed](https://img.shields.io/badge/Indeed-2164F4?style=for-the-badge&logo=indeed&logoColor=white)](https://www.indeed.com/)
 
 ---
